@@ -1,0 +1,23 @@
+p{
+    color: Blue;
+}
+
+h1{
+    font-size: smaller;
+}
+
+#p_1{
+    color: green;
+}
+
+.paragrafo_amarelo{
+    color: yellow;
+}
+
+div p{
+    color: darkgoldenrod;
+}
+
+#p_2:hover{
+    color: darkslateblue;
+}
