@@ -1,0 +1,33 @@
+.flex-container{
+    height: 600px;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center ;
+    /* align-items: stretch; */
+
+}
+
+.flex-container div{
+    background-color: burlywood;
+    padding: 10px;
+    margin: 10px;
+}
+
+#d8{
+    order: 1;
+    flex-grow: 1;
+    /* align-self: center; */
+}
+
+#d16{
+    order: 2;
+    flex-grow: 2;
+}
+
+#d22{
+    order: 3;
+    flex-basis: 100px;
+}
