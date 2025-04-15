@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^5.1.0"
+  },
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "Meu primeiro servidor web",
+  "main": "servidor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fagnerpimentel/FullStack.git"
+  },
+  "author": "Fagner Pimentel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fagnerpimentel/FullStack/issues"
+  },
+  "homepage": "https://github.com/fagnerpimentel/FullStack#readme"
+}
