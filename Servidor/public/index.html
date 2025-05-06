@@ -8,5 +8,50 @@
     <body>
         <h1>Meu primeiro Servidor</h1>
 
+        <h2>Exemplo de GET</h2>
+        <form method="get" action="/inicio" >
+            <input type="submit" value="Click para iniciar!">
+        </form>
+
+        <h2>Exemplo de POST</h2>
+        <form method="post" action="/inicio">
+            <input type="submit" value="Click para iniciar!">
+        </form>
+
+        <h2>Exemplo de cadastro de usuário usando GET</h2>
+        <form method="get" action="/cadastrar">
+            <p>Nome: <input type="text" name="nome"></p>
+            <p>Email: <input type="email" name="email"></p>
+            <p>Senha: <input type="password" name="senha"></p>
+            <p>Nascimento: <input type="date" name="nascimento"></p>
+            <input type="submit" value="Cadastrar">
+        </form>
+
+
+        <h2>Exemplo de cadastro de usuário usando POST</h2>
+        <form method="post" action="/cadastrar">
+            <p>Nome: <input type="text" name="nome"></p>
+            <p>Email: <input type="email" name="email"></p>
+            <p>Senha: <input type="password" name="senha"></p>
+            <p>Nascimento: <input type="date" name="nascimento"></p>
+            <input type="submit" value="Cadastrar">
+        </form>
+
+
+        <h2>Exemplo de for no ejs</h2>
+        <form method="get" action="/for_ejs">
+            <p>Número de DIVs: <input type="number" name="num"></p>
+            <input type="submit" value="Clique para gerar DIVs">
+        </form>
+
+        <hr>
+
+        <h2>Exemplo de login de usuário usando POST</h2>
+        <form method="post" action="/login">
+            <p>Email: <input type="email" name="email"></p>
+            <p>Senha: <input type="password" name="senha"></p>
+            <input type="submit" value="Login">
+        </form>
+
     </body>
 </html>
