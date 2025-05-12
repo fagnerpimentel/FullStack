@@ -5,7 +5,7 @@ var bodyParser = require("body-parser")
 var mongodb = require("mongodb");
 
 const MongoClient = mongodb.MongoClient;
-const uri = `mongodb+srv://fagner:UCOrMIO6kjEnGFUM@aulabd.cjihvk4.mongodb.net/?retryWrites=true&w=majority&appName=AulaBD`;
+const uri = `mongodb+srv://fagner:lJuJ8IOVepDshUww@aulabd.cjihvk4.mongodb.net/?retryWrites=true&w=majority&appName=AulaBD`;
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
 var dbo = client.db("exemplo_bd");
@@ -53,6 +53,7 @@ app.post('/cadastrar', function(requisicao, resposta){
 
     let data = {db_nome: nome, db_email: email, db_senha: senha, db_nascimento: nascimento}
     usuarios.insertOne(data, function(err){
+        console.log(err)
         if(err){
             resposta.render('resposta.ejs', 
                 {mensagem: "Erro ao cadastrar usuário!", usuario: nome, login: email})        
@@ -87,4 +88,39 @@ app.post('/login', function(requisicao, resposta){
           };
     
     })
+})
+
+
+app.post('/atualizar_usuario', function(requisicao, resposta){
+    var data = { db_email: requisicao.body.email, db_senha: requisicao.body.senha };
+    var newData = { $set: {db_senha: requisicao.body.novasenha} };
+    console.log(data)
+
+    usuarios.updateOne(data,newData, function(err, result){
+        console.log(result);
+        if (result.modifiedCount == 0) {
+        resposta.render('resposta_usuario.ejs', {mensagem: "Usuário/senha não encontrado!"})
+        }else if (err) {
+        resposta.render('resposta_usuario.ejs', {mensagem: "Erro ao atualizar usuário!"})
+        }else {
+        resposta.render('resposta_usuario.ejs', {mensagem: "Usuário atualizado com sucesso!"})        
+        };
+    });
+})
+
+
+app.post('/remover_usuario', function(requisicao, resposta){
+    var data = {db_email: requisicao.body.email, db_senha: requisicao.body.senha}
+
+    usuarios.deleteOne(data, function(err, result){
+        console.log(result);
+        if (result.deletedCount == 0) {
+            resposta.render('resposta_usuario.ejs', {mensagem: "Usuário/senha não encontrado!"})
+        }else if (err) {
+            resposta.render('resposta_usuario.ejs', {mensagem: "Erro ao remover usuário!"})
+        }else {
+            resposta.render('resposta_usuario.ejs', {mensagem: "Usuário removido com sucesso!"})        
+        };
+    });
+
 })
